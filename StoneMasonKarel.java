@@ -13,6 +13,9 @@ import stanford.karel.*;
 public class StoneMasonKarel extends SuperKarel {
 
 	// You fill in this part
-move();
-
+	public void run() {
+		move();
+		turnRight();
+		move();
+	}
 }
