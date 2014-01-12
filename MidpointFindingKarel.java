@@ -139,5 +139,6 @@ public class MidpointFindingKarel extends SuperKarel {
 				turnLeft();
 			}
 			move();
+		}
 	}
 }
