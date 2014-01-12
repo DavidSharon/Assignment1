@@ -14,8 +14,18 @@ public class StoneMasonKarel extends SuperKarel {
 
 	// You fill in this part
 	public void run() {
+		getoTartget();
+		pickBeeper();
+		gettoTarget();
+	}
+	private void gettoTarget() {
+		move();
 		move();
 		turnRight();
 		move();
+		turnLeft();
+		move();
+		turnAround();
 	}
+
 }
