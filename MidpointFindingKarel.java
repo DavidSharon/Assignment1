@@ -125,7 +125,7 @@ public class MidpointFindingKarel extends SuperKarel {
 		if (frontIsClear()) {
 			move();
 		}else{
-			paintCorner(RED)
+			paintCorner(RED);
 		}
 		while (cornerColorIs (null)) {
 			move();
