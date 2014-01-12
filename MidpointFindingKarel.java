@@ -150,7 +150,7 @@ public class MidpointFindingKarel extends SuperKarel {
 	private void returntoStart() {
 		faceSouth();
 		returntoBase();
-		turnRight();
+		faceWest();
 		while (frontIsClear()) {
 			move();
 		}
@@ -159,6 +159,12 @@ public class MidpointFindingKarel extends SuperKarel {
 	
 	private void faceSouth() {
 		while (notFacingSouth()) {
+			turnLeft();
+		}
+	}
+	
+	private void faceWest() {
+		while (notFacingWest()) {
 			turnLeft();
 		}
 	}
