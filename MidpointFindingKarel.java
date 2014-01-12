@@ -15,5 +15,129 @@ import stanford.karel.*;
 public class MidpointFindingKarel extends SuperKarel {
 
 	// You fill in this part
-
+	public void run () {
+		cleanWorldColor();
+		findmidSection();
+		faceNorth();
+		findmidSection();
+		paintCorner(RED);
+		cleanWorldYellow();
+		findRed();
+		paintCorner(null);
+	}
+	
+	private void cleanWorldColor () {
+		while (frontIsClear()) {
+			cleanAvenueColor();
+			move();
+		}
+		cleanAvenueColor();
+	}
+	
+	private void cleanAvenueColor() {
+		turnLeft();
+		while (frontIsClear()) {
+			paintCorner (null);
+			move();
+		}
+		paintCorner (null);
+		turnAround();
+		returntoBase();
+		turnLeft();
+	}
+	
+	private void cleanWorldYellow() {
+		while (frontIsClear()) {
+			cleanAvenueYellow();
+			move();
+		}
+		cleanAvenueYellow();
+	}
+	
+	private void cleanAvenueYellow() {
+		turnLeft();
+		while (frontIsClear()) {
+			if (cornerColorIs(YELLOW)) {
+				paintCorner(null);
+			}
+			move();
+		}
+		if (cornerColorIs(YELLOW)) {
+			paintCorner(null);
+		}
+		turnAround();
+		returntoBase();
+		turnLeft();
+	}
+	
+	
+	/* returntoBase brings MidpointFindingKarel to the first street of the avenue she is located
+	 * Precondition: facing south
+	 * Postcondition: first street of given avenue facing east
+	 */
+	
+	private void returntoBase() {
+		while (frontIsClear()) {
+			move();
+			}
+			turnLeft();
+	}
+	
+	private void findmidSection() {
+		paintCorner(YELLOW);
+		findWall();
+		paintCorner(YELLOW);
+		while (cornerColorIs(YELLOW)) {
+			findclosestYellow();
+			turnAround();
+			if (frontIsClear()) {
+				move();
+				if (frontIsClear()) {
+					move();
+					if (cornerColorIs(YELLOW)) {
+						turnAround();
+						move();
+						paintCorner(ORANGE);
+					}else{
+						turnAround();
+						move();
+						paintCorner(YELLOW);
+						turnAround();
+				
+					}
+				}else{
+					paintCorner(ORANGE);
+				}
+			}else{
+					paintCorner(ORANGE);
+			}
+		}
+	}
+	
+	private void findWall() {
+		while (frontIsClear()) {
+			move();
+		}
+		turnAround();
+	}
+	
+	private void findclosestYellow() {
+		while (cornerColorIs (null)) {
+			move();
+		}
+	}
+	
+	private void faceNorth () {
+		while (notFacingNorth()) {
+			turnLeft();
+		}
+	}
+	
+	private void findRed() {
+		while (cornerColorIs(null)) {
+			if (frontIsBlocked()) {
+				turnLeft();
+			}
+			move();
+	}
 }
