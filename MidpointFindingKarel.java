@@ -87,6 +87,7 @@ public class MidpointFindingKarel extends SuperKarel {
 		paintCorner(YELLOW);
 		findWall();
 		paintCorner(YELLOW);
+		turnAround();
 		while (cornerColorIs(YELLOW)) {
 			findclosestYellow();
 			turnAround();
@@ -118,10 +119,14 @@ public class MidpointFindingKarel extends SuperKarel {
 		while (frontIsClear()) {
 			move();
 		}
-		turnAround();
 	}
 	
 	private void findclosestYellow() {
+		if (frontIsClear()) {
+			move();
+		}else{
+			paintCorner(RED)
+		}
 		while (cornerColorIs (null)) {
 			move();
 		}
