@@ -43,7 +43,6 @@ public class MidpointFindingKarel extends SuperKarel {
 		paintCorner (null);
 		turnAround();
 		returntoBase();
-		turnLeft();
 	}
 	
 	private void cleanWorldYellow() {
