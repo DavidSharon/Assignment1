@@ -16,10 +16,10 @@ public class StoneMasonKarel extends SuperKarel {
 	 * there is a ceiling in the world for that avenue. The columns are four avenues
 	 * apart. The world must have exactly 4*n + avenues (e.g., 13, 17, 21 are all allowed).
 	 * Beepers may already be present anywhere in the column. StoneMasonKarel will not
-	 * add a second beeper for those cases. 
-	 * (non-Javadoc)
-	 * @see stanford.karel.SuperKarel#run()
+	 * add a second beeper for those cases. For any beepers present on avenues where no column
+	 * is suppose to be present, StoneMasonKarel will remove those beepers.
 	 */
+	
 	public void run() {
 		while (frontIsClear()) {
 			fillColumn();
@@ -29,6 +29,11 @@ public class StoneMasonKarel extends SuperKarel {
 	fillColumn();
 	returntoBase();
 	}
+	
+	/* fillColumn creates a column of beepers the height of the avenue StoneMasonKarel is located
+	 *Precondition: at first street of desired avenue facing east
+	 *Postcondition: at lowest wall of avenue facing south 
+	 */
 	
 	private void fillColumn() {
 		turnLeft();
@@ -46,12 +51,24 @@ public class StoneMasonKarel extends SuperKarel {
 		turnAround();
 	}
 	
+	/* returntoBase brings StoneMasonKarel to the first street of the avenue she is located
+	 * Precondition: facing south
+	 * Postcondition: first street of given avenue facing east
+	 */
+	
 	private void returntoBase() {
 		while (frontIsClear()) {
 			move();
 			}
 			turnLeft();
 	}
+	
+	/* movebetweenColumns moves StoneMasonKarel from one column to the other which are four avenues apart
+	 * and cleans any beepers between those avenues. 
+	 * Precondition: at the first street of an avenue with a column of facing east
+	 * Postcondition: at the first street of the next avenue which is exactly four avenues from the previous avenue
+	 *
+	 */
 	
 	private void movebetweenColumns () {
 		move();
@@ -60,6 +77,12 @@ public class StoneMasonKarel extends SuperKarel {
 			move();
 		}
 	}
+	
+	/* Removes any beepers from the avenue StoneMasonKarel is located 
+	 * Precondition: faces east on first street of avenue
+	 * Postcondition: faces east on first street of avenue
+	 */
+	
 	private void cleanAvenue() {
 		turnLeft();
 		while (frontIsClear()) {
