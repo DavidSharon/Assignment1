@@ -23,6 +23,7 @@ public class MidpointFindingKarel extends SuperKarel {
 		paintCorner(RED);
 		returntoStart();
 		cleanWorldYellow();
+		returntoStart();
 		findRed();
 		paintCorner(null);
 	}
@@ -140,13 +141,23 @@ public class MidpointFindingKarel extends SuperKarel {
 	}
 	
 	private void findRed() {
+		faceNorth();
 		while (cornerColorIs(null)) {
 			if (frontIsBlocked()) {
-				turnLeft();
+				if (facingSouth()) {
+					turnLeft();
+					move();
+					turnLeft();
+				}else{
+					if (facingNorth()) {
+						turnAround();
+					}
+				}
 			}
 			move();
-		}
+			}
 	}
+	
 	private void returntoStart() {
 		faceSouth();
 		returntoBase();
