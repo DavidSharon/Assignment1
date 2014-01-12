@@ -63,13 +63,17 @@ public class StoneMasonKarel extends SuperKarel {
 	private void cleanAvenue() {
 		turnLeft();
 		while (frontIsClear()) {
-			pickBeeper();
+			if (beepersPresent()) {
+				pickBeeper();
+			}
 			move();
-		pickBeeper();
+		}
+		if (beepersPresent()) {
+			pickBeeper();
+		}
 		turnAround();
 		returntoBase();
 		}
-	}
 }
 		
 			
