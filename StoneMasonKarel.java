@@ -12,7 +12,14 @@ import stanford.karel.*;
 
 public class StoneMasonKarel extends SuperKarel {
 
-	// You fill in this part
+	/* StoneMasonKarel creates columns of varying height pending on where
+	 * there is a ceiling in the world for that avenue. The columns are four avenues
+	 * apart. The world must have exactly 4*n + avenues (e.g., 13, 17, 21 are all allowed).
+	 * Beepers may already be present anywhere in the column. StoneMasonKarel will not
+	 * add a second beeper for those cases. 
+	 * (non-Javadoc)
+	 * @see stanford.karel.SuperKarel#run()
+	 */
 	public void run() {
 		while (frontIsClear()) {
 			fillColumn();
@@ -47,8 +54,20 @@ public class StoneMasonKarel extends SuperKarel {
 	}
 	
 	private void movebetweenColumns () {
-		for (int i = 0; i < 4; i++) {
+		move();
+		for (int i = 0; i < 3; i++) {
+			cleanAvenue();
 			move();
+		}
+	}
+	private void cleanAvenue() {
+		turnLeft();
+		while (frontIsClear()) {
+			pickBeeper();
+			move();
+		pickBeeper();
+		turnAround();
+		returntoBase();
 		}
 	}
 }
