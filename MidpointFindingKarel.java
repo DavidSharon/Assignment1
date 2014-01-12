@@ -53,6 +53,7 @@ public class MidpointFindingKarel extends SuperKarel {
 			move();
 		}
 		cleanAvenueYellow();
+		turnAround();
 	}
 	
 	private void cleanAvenueYellow() {
@@ -68,7 +69,6 @@ public class MidpointFindingKarel extends SuperKarel {
 		}
 		turnAround();
 		returntoBase();
-		turnLeft();
 	}
 	
 	
