@@ -21,6 +21,7 @@ public class MidpointFindingKarel extends SuperKarel {
 		faceNorth();
 		findmidSection();
 		paintCorner(RED);
+		returntoBase();
 		cleanWorldYellow();
 		findRed();
 		paintCorner(null);
