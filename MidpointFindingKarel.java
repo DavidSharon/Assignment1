@@ -140,6 +140,7 @@ public class MidpointFindingKarel extends SuperKarel {
 	}
 	
 	private void findRed() {
+		returntoStart();
 		while (cornerColorIs(null)) {
 			if (frontIsBlocked()) {
 				turnLeft();
