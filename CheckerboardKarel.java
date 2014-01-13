@@ -17,6 +17,7 @@ public class CheckerboardKarel extends SuperKarel {
 		faceNorth();
 		putBeeper();
 		if (frontIsBlocked()) {
+			faceEast();
 			checkerAvenue();
 		}
 		while (frontIsClear()) {
