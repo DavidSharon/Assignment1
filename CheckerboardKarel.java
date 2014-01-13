@@ -32,14 +32,20 @@ public class CheckerboardKarel extends SuperKarel {
 		faceEast();
 	}
 	
-	/* Fills checkerboard with 
-	 * 
+	/* Fills avenue with beepers in checkerboard patter
+	 * precondition: facing wall farthest from location
+	 * postcondition: facing above mentioned wall on cell closest to that wall
 	 */
 	private void checkerAvenue() {
 		while (frontIsClear()) {
 			checkerTwoSquares();
 		}
 	}
+	
+	/* Fills next two cells with correct checkerboard pattern
+	 *  precondition: facing direction of cells to be filled
+	 *  post condition: two cells away from starting position, facing same direction
+	 */
 	
 	private void checkerTwoSquares() {
 		if (beepersPresent()) {
@@ -61,6 +67,11 @@ public class CheckerboardKarel extends SuperKarel {
 		}
 	}
 	
+	/* moves between two avenues and goes to next position where a
+	 * beeper is needed according to the checker pattern. Puts a beeper in that location
+	 * precondition: facing either north or south in first or last street, respectively, of avenue
+	 * postcondition: next avenue to east where beeper should be located. Stands on beeper facing farther wall 
+	 */
 	private void moveAvenues(){
 			if (facingNorth()) {
 				faceEast();
@@ -96,7 +107,12 @@ public class CheckerboardKarel extends SuperKarel {
 				}
 			}
 	}
-			
+
+	/* Orients Karel North
+	 * Precondition: none
+	 * Postcondition: Karel facing north
+	 */
+	
 	private void faceNorth () {
 		while (notFacingNorth()) {
 			turnLeft();
