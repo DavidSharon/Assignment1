@@ -11,7 +11,11 @@ import stanford.karel.*;
 
 public class CheckerboardKarel extends SuperKarel {
 
-	// You fill in this part
+	/* Creates a checkerboard of beepers for any rectangular world without 
+	 * beepers already on it
+	 * Precondition: first street, first avenue
+	 * Postcondition: either first or last street, last avenue
+	 */
 	
 	public void run() {
 		faceNorth();
@@ -28,6 +32,9 @@ public class CheckerboardKarel extends SuperKarel {
 		faceEast();
 	}
 	
+	/* Fills checkerboard with 
+	 * 
+	 */
 	private void checkerAvenue() {
 		while (frontIsClear()) {
 			checkerTwoSquares();
