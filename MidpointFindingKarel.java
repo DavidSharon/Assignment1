@@ -194,6 +194,9 @@ public class MidpointFindingKarel extends SuperKarel {
 					turnLeft();
 				}else{
 						turnAround();
+						if (frontIsBlocked()) {
+							faceEast();
+						}
 						}
 					}
 			move();
