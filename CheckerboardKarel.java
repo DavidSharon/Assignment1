@@ -51,9 +51,29 @@ public class CheckerboardKarel extends SuperKarel {
 	}
 	
 	private void moveAvenues(){
-			faceEast();
-			if (frontIsClear()) {
-				checkerTwoSquares();
+			if (facingNorth())
+				faceEast();
+				if (frontIsClear()) {
+					if (beepersPresent()) {
+						move();
+						faceSouth();
+				}else{
+					putBeeper();
+					move();
+					faceSouth();
+				}
+			}else{
+					faceEast();
+					if (frontIsClear()) {
+						if (beepersPresent()) {
+							move();
+							faceNorth();
+					}else{
+						putBeeper();
+						move();
+						faceNorth();
+					}		
+				}
 			}
 		}
 	
