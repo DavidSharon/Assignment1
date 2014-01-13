@@ -57,18 +57,26 @@ public class CheckerboardKarel extends SuperKarel {
 					if (beepersPresent()) {
 						move();
 						faceSouth();
+						if (frontIsClear()) {
+							move();
+							putBeeper();
+						}
 					}else{
 						move();
 						putBeeper();
 						faceSouth();
+						}
 					}
-				}
 			}else{
 				faceEast();
 				if (frontIsClear()) {
 					if (beepersPresent()) {
 						move();
 						faceNorth();
+						if (frontIsClear()) {
+							move();
+							putBeeper();
+						}
 					}else{
 						move();
 						faceNorth();
