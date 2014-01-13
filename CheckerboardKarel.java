@@ -31,12 +31,22 @@ public class CheckerboardKarel extends SuperKarel {
 	}
 	
 	private void checkerTwoSquares() {
-		if (beepersPresent ()) {
-			move();
-			putBeeper();
+		if (beepersPresent()) {
+			if (frontIsClear()) {
+				move();
+				if (frontIsClear()) {
+					move();
+					putBeeper();
+				}
+			}
 		}else{
 			putBeeper();
-			move();
+			if (frontIsClear()) {
+				move();
+				if (frontIsClear()) {
+					move();
+				}
+			}
 		}
 	}
 	
