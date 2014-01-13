@@ -193,11 +193,9 @@ public class MidpointFindingKarel extends SuperKarel {
 					move();
 					turnLeft();
 				}else{
-					if (facingNorth()) {
 						turnAround();
+						}
 					}
-				}
-			}
 			move();
 			}
 		faceEast();
