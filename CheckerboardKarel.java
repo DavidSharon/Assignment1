@@ -16,6 +16,9 @@ public class CheckerboardKarel extends SuperKarel {
 	public void run() {
 		faceNorth();
 		putBeeper();
+		if (frontIsBlocked()) {
+			checkerAvenue();
+		}
 		while (frontIsClear()) {
 			checkerAvenue();
 			moveAvenues();
