@@ -15,9 +15,10 @@ import stanford.karel.*;
 public class MidpointFindingKarel extends SuperKarel {
 
 	/* MidpointFindingKarel helps Karel find the midpoint of a world without 
-	 * altering the beepers on the ground already present. It therefore- conciously- does not
+	 * altering the beepers on the ground already present. It therefore- consciously- does not
 	 * leave a beeper on any corner (could easily be added). It does, however
-	 * clean any colors left in the world
+	 * clean any colors left in the world. I also wanted to find the midpoint of the whole world
+	 * and not just 1st street. The program can easily end at just the midpoint of first street.
 	 * 
 	 * Precondition: start at 1st street, 1st avenue
 	 * Postcondition: middle of world, or closest to it if even number of rows and/ or avenues
